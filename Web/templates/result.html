@@ -1,0 +1,86 @@
+{% extends 'dashboardExtender.html' %}
+
+{% block sidebar %}
+<div class="scrollbar-sidebar">
+    <div class="app-sidebar__inner">
+        <ul class="vertical-nav-menu">
+            <li class="app-sidebar__heading">Dashboard</li>
+            <li>
+                <a href="{{ url_for('home') }}">
+                    <i class="metismenu-icon fa fa-home"></i>
+                    Home
+                </a>
+            </li>
+            
+                <a href="{{ url_for('diagnosecardio') }}" >
+                    <i class="metismenu-icon fa fa-plus-circle">
+                    </i>Diagnose(Cardio)
+                </a>
+            </li>
+            
+             
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa fa-bed icon-gradient bg-amy-crisp"> </i>
+                </div>
+                <div>Dashboard
+                    <div class="page-title-subheading">A brand new ML based cross-platform Health Care application.
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    
+    <div class="app-main__outer">
+                    
+        <div class="app-main__inner">
+            <h1>Upload Image</h1>
+            <img src="/static/input.png">
+             
+            <br>
+            <h1>Gray SCALE IMAGE</h1>
+            <img src="/static/gray.png">
+             
+            <br>
+            <h1>DIVIDING LEAD</h1>
+            <h3>1-12</h3><br>
+            <img src="./static/Leads_1-12_figure.png">
+            <br>
+            <h3>13</h3><br>
+            <img src="./static/Long_Lead_13_figure.png">
+            <br>
+            <h1>PREPROCESSED LEAD</h1><br>
+            <h3>1-12</h3><br>
+            <img  src="./static/Preprossed_Leads_1-12_figure.png">
+            <br>
+            <h3>13</h3><br>
+            <img  src="./static/Preprossed_Leads_13_figure.png">
+            <br>
+            <h1>CONOTUR LEADS</h1><br>
+            <img  src="./static/Contour_Leads_1-12_figure.png">
+            <br>
+            
+            <br>
+            {%if res%}
+            <h1>Prediction</h1>
+            <div class="mb-2 mr-2 badge badge-pill badge-danger">{{ res }}</div>
+            <br>
+            <h1>Recommeneded Treatment</h1>
+            <div class="mb-2 mr-2 badge badge-pill badge-danger">{{ treat }}</div>
+            {% endif %}
+
+        </div>
+     
+</div>
+</div>
+
+{% endblock %}
